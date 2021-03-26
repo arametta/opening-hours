@@ -35,7 +35,7 @@ class OpeningHoursController @Inject()(val controllerComponents: ControllerCompo
 
   def readJsonMap() = Action { implicit request =>
     val body = request.body
-    //Parse the Json into map of day, list of opening
+    //Parse the Json into map of (day, list of opening)
     val days:Option[Map[String, List[Opening]]] = request.body.asJson.getOrElse(Json.obj()).asOpt[Map[String, List[Opening]]]
     days match {
       case Some(d: Map[String, List[Opening]]) => {
