@@ -42,6 +42,6 @@ Instead of the structure as <days-of-the-week>:<opening-hours> I would've define
 
 This way it could've been stored in a list of
 
-      case class Days(day: String, opening: List[Opening])
+      case class Days(day: String, openinghours: List[Opening])
 
 I think that iterate over it could've required less code.
