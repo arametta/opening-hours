@@ -26,3 +26,22 @@ You need to download and install sbt for this application to run.
 
         cd opening-hours
         sbt test
+
+Instead of the structure as <days-of-the-week>:<opening-hours> I would've defined the JSON like this:
+
+      [
+         {
+            "day" : "monday",
+            "opening-hours": <opening-hours>
+         },
+         {  "day" : "tuesday",
+            "opening-hours": <opening-hours>
+         },
+         ...
+      ]
+
+This way it could've been stored in a list of
+
+      case class Days(day: String, opening: List[Opening])
+
+I think that iterate over it could've required less code.
