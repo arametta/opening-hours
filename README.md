@@ -32,10 +32,10 @@ Instead of the structure as <days-of-the-week>:<opening-hours> I would've define
       [
          {
             "day" : "monday",
-            "opening-hours": <opening-hours>
+            "openinghours": <opening-hours>
          },
          {  "day" : "tuesday",
-            "opening-hours": <opening-hours>
+            "openinghours": <opening-hours>
          },
          ...
       ]
