@@ -18,7 +18,11 @@ You need to download and install sbt for this application to run.
         cd opening-hours
         curl -X POST -H "Content-Type: application/json" -d @openingHours.json localhost:9000/readJson
 
-4. To run the tests:
+4. To test the map implementation use
+
+        curl -X POST -H "Content-Type: application/json" -d @openingHours.json localhost:9000/readJsonMap
+
+5. To run the tests:
 
         cd opening-hours
         sbt test

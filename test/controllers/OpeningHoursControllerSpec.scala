@@ -38,6 +38,23 @@ class OpeningHoursControllerSpec extends PlaySpec with GuiceOneAppPerTest with I
       val result = controller.readJson().apply(request)
       status(result) mustEqual OK
     }
+    "return bad request for incorrect Json using map" in {
+      val request = FakeRequest(POST, "/readJson").withJsonBody(Json.parse("""{ "monday": [] }"""))
+
+      val result = controller.readJsonMap().apply(request)
+      status(result) mustEqual BAD_REQUEST
+    }
+    "return bad request for empty Json using map" in {
+      val request = FakeRequest(POST, "/readJson").withJsonBody(Json.parse("{}"))
+
+      val result = controller.readJsonMap().apply(request)
+      status(result) mustEqual BAD_REQUEST
+    }
+    "return ok using map" in {
+      val request = FakeRequest(POST, "/readJson").withJsonBody(Json.parse(scala.io.Source.fromFile("openingHours.json").mkString))
+      val result = controller.readJsonMap().apply(request)
+      status(result) mustEqual OK
+    }
   }
 /*
   "OpeningHoursController GET" should {
